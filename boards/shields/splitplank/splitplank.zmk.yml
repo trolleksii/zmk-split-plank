@@ -1,6 +1,6 @@
 file_format: "1"
 id: splitplank 
-name: SplitPlank
+name: Plank Split
 type: shield
 url: https://github.com/trolleksii
 requires: [pro_micro]
@@ -8,5 +8,5 @@ exposes: []
 features:
   - keys
 siblings:
-  - corne_left
-  - corne_right
+  - splitplank_left 
+  - splitplank_right
