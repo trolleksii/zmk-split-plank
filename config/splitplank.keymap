@@ -26,6 +26,15 @@
                     , <&kp MACRO_PLACEHOLDER>
                     ;
             };
+            vim: vim {
+                compatible = "zmk,behavior-macro-one-param";
+                #binding-cells = <1>;
+                bindings 
+                    = <&macro_tap &kp SPACE>
+                    , <&macro_param_1to1>
+                    , <&kp MACRO_PLACEHOLDER>
+                    ;
+            };
         };
 
         keymap {
@@ -42,27 +51,27 @@
                 lower_layer {
                         bindings = <
    &kp LA(TAB) &kp GRAVE &kp EXCL &kp DLLR  &kp HASH &none        &none   &kp MINUS &kp EQUAL &kp PLUS  &kp COLON &trans
-   &kp LCTL    &kp LT    &kp LBRC &kp LBKT  &kp LPAR &tmux LC(L)  &none   &kp RPAR  &kp RBKT  &kp RBRC  &kp GT    &kp DQT
-   &trans      &kp TILDE &kp AT   &kp PRCNT &kp AMPS &kp LC(B)    &none   &kp UNDER &kp STAR  &kp CARET &kp BSLH  &kp PIPE
+   &kp LCTL    &kp LT    &kp LBRC &kp LBKT  &kp LPAR &tmux LC(L)  &vim K  &kp RPAR  &kp RBKT  &kp RBRC  &kp GT    &kp DQT
+   &trans      &kp TILDE &kp AT   &kp PRCNT &kp AMPS &kp LC(B)    &vim J  &kp UNDER &kp STAR  &kp CARET &kp BSLH  &kp PIPE
                          &kp LGUI &trans    &kp LG(Z)             &kp DEL &trans &trans
                         >;
                 };
 
                 raise_layer {
                         bindings = <
-   &kp F1    &kp F2 &kp F3 &kp F4   &kp F5 &kp F6      &none &kp N7 &kp N8 &kp N9 &none  &tmux S
-   &kp LCTRL &none  &none  &none    &none  &none       &none &kp N4 &kp N5 &kp N6 &kp N0 &none
-   &kp LSHFT &none  &none  &none    &none  &none       &none &kp N1 &kp N2 &kp N3 &none  &none
-                           &kp LGUI &trans &kp SPACE   &none &trans &trans 
+   &kp F1    &kp F2   &kp F3   &kp F4   &kp F5   &kp F6       &none &kp N7 &kp N8 &kp N9 &none  &tmux S
+   &kp LCTRL &tmux N1 &tmux N2 &tmux N3 &tmux N4 &none        &none &kp N4 &kp N5 &kp N6 &kp N0 &none
+   &kp LSHFT &tmux Z  &none    &none    &tmux U  &tmux LS(E)  &none &kp N1 &kp N2 &kp N3 &none  &none
+                               &kp LGUI &trans   &kp SPACE    &none &trans &trans 
                         >;
                 };
 
                 adjust_layer {
                         bindings = <
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 4 &bt BT_SEL 4   &none   &kp HOME &kp UP   &kp END   &kp PG_UP &none 
-   &kp LCTRL  &none        &none        &none        &none        &none          &none   &kp LEFT &kp DOWN &kp RIGHT &kp PG_DN &none 
-   &kp LSHFT  &none        &none        &none        &none        &none          &none   &none    &none    &none     &none     &none 
-                                        &kp LGUI     &trans       &kp SPACE      &kp RET &trans   &trans 
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 4 &bt BT_SEL 4   &none   &kp HOME  &kp UP    &kp END   &kp PG_UP &none 
+   &none      &kp LSHFT    &kp LCTRL    &kp LALT     &kp LGUI     &none          &none   &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_DN &none 
+   &none      &kp LC(H)    &kp LC(J)    &kp LC(K)    &kp LC(L)    &none          &none   &kp LC(H) &kp LC(J) &kp LC(K) &kp LC(L) &none 
+                                        &none        &trans       &none          &none   &trans    &none
                         >;
                 };
         };
