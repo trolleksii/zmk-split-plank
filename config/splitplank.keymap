@@ -15,6 +15,18 @@
                 then-layer = <ADJUST>;
             };
         };
+        
+        macros {
+            tmux: tmux {
+                compatible = "zmk,behavior-macro-one-param";
+                #binding-cells = <1>;
+                bindings 
+                    = <&macro_tap &kp LC(B)>
+                    , <&macro_param_1to1>
+                    , <&kp MACRO_PLACEHOLDER>
+                    ;
+            };
+        };
 
         keymap {
                 compatible = "zmk,keymap";
@@ -29,16 +41,16 @@
                 };
                 lower_layer {
                         bindings = <
-   &kp LA(TAB) &kp GRAVE &kp EXCL &kp DLLR  &kp HASH &none    &none   &kp MINUS &kp EQUAL &kp PLUS  &kp COLON &trans
-   &kp LCTL    &kp LT    &kp LBRC &kp LBKT  &kp LPAR &none    &none   &kp RPAR  &kp RBKT  &kp RBRC  &kp GT    &kp DQT
-   &trans      &kp TILDE &kp AT   &kp PRCNT &kp AMPS &none    &none   &kp UNDER &kp STAR  &kp CARET &kp BSLH  &kp PIPE
-                         &kp LGUI &trans    &kp LG(Z)         &kp DEL &trans &trans
+   &kp LA(TAB) &kp GRAVE &kp EXCL &kp DLLR  &kp HASH &none        &none   &kp MINUS &kp EQUAL &kp PLUS  &kp COLON &trans
+   &kp LCTL    &kp LT    &kp LBRC &kp LBKT  &kp LPAR &tmux LC(L)  &none   &kp RPAR  &kp RBKT  &kp RBRC  &kp GT    &kp DQT
+   &trans      &kp TILDE &kp AT   &kp PRCNT &kp AMPS &kp LC(B)    &none   &kp UNDER &kp STAR  &kp CARET &kp BSLH  &kp PIPE
+                         &kp LGUI &trans    &kp LG(Z)             &kp DEL &trans &trans
                         >;
                 };
 
                 raise_layer {
                         bindings = <
-   &kp F1    &kp F2 &kp F3 &kp F4   &kp F5 &kp F6      &none &kp N7 &kp N8 &kp N9 &none  &none
+   &kp F1    &kp F2 &kp F3 &kp F4   &kp F5 &kp F6      &none &kp N7 &kp N8 &kp N9 &none  &tmux S
    &kp LCTRL &none  &none  &none    &none  &none       &none &kp N4 &kp N5 &kp N6 &kp N0 &none
    &kp LSHFT &none  &none  &none    &none  &none       &none &kp N1 &kp N2 &kp N3 &none  &none
                            &kp LGUI &trans &kp SPACE   &none &trans &trans 
